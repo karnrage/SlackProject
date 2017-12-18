@@ -1,0 +1,24 @@
+
+
+<h1>Register</h1>
+
+
+<p *ngIf = 'errors != null'>{{ errors }}</p>
+<form (submit)='register()'>
+  <p>Username: 
+    <input type="text" name="username" [(ngModel)]="user.username" >
+  </p>
+  <p>Full Name:
+      <input type="text" name="fullname" [(ngModel)]="user.fullname">
+  </p>
+  <p>Email Address:
+      <input type="text" name="email" [(ngModel)]="user.email">
+  </p>
+  <p>Password: 
+      <input type="password" name="password" [(ngModel)]="user.password">
+  </p>
+  
+  <input type="submit">
+
+</form>
+
