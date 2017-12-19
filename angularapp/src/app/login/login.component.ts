@@ -10,15 +10,21 @@ import { Router } from '@angular/router'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user = {
-  username: '',
-  }
-  errors: String = null;
+  
 
   constructor(private _dataService: DataService, private _router: Router) { }
 
   ngOnInit() {
   }
+
+  user = {
+    username: '',
+    fullname: '',
+    email: '',
+    password: '',
+    }
+    errors: String = null;
+  
   register(){
     console.log("=======INSIDE REGISTER FUNCTION==========")
     this._dataService.register(this.user)
