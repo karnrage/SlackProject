@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   register(){
+    console.log("=======INSIDE REGISTER FUNCTION==========")
     this._dataService.register(this.user)
     .then((data)=>{
       if(data.errors){
@@ -32,4 +33,11 @@ export class LoginComponent implements OnInit {
     })
     .catch((err)=>console.log("there was an error when Logging in"))
   }
+
+  // submitLogin(){
+  //   this._dataService.loginUser(this.user)
+  //     .then(response => this.loggedUser = response)
+  //     .catch(err => this.errormessage = err.error)
+  //   // return this._router.navigateByUrl('/dashboard')
+  // }
 }
