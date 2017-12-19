@@ -1,13 +1,12 @@
 
-
 <h1>Register</h1>
 
-
-<p *ngIf = 'errors != null'>{{ errors }}</p>
 <form (submit)='register()'>
   <p>Username: 
     <input type="text" name="username" [(ngModel)]="user.username" >
   </p>
+  
+  <p *ngIf="first.errors && first.invalid && first.dirty" class="error">First Name required with a minimum length of 2</p>
   <p>Full Name:
       <input type="text" name="fullname" [(ngModel)]="user.fullname">
   </p>
