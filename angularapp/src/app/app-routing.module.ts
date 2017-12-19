@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { CreatechannelComponent } from './dashboard/createchannel/createchannel.component'
 
 const routes: Routes = [
   {
@@ -17,10 +18,10 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: '**',
+    path: 'create_channel',
     pathMatch: 'full',
-    component: LoginComponent
-  },
+    component: CreatechannelComponent
+}
 ];
 
 @NgModule({

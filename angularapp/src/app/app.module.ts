@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreatechannelComponent } from './dashboard/createchannel/createchannel.component';
+import { JoinchannelComponent } from './joinchannel/joinchannel.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    CreatechannelComponent,
+    JoinchannelComponent,
   ],
   imports: [
     BrowserModule,
