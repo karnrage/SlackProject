@@ -24,7 +24,7 @@ module.exports = {
             } else {
               console.log("hit the save path")
               req.session.currentUser = newUser;
-              console.log(req.sessions.currentUser)
+              console.log(req.session.currentUser)
               res.json(req.session.currentUser)
             }
           });

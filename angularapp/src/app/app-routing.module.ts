@@ -22,8 +22,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: CreatechannelComponent
 }
-    
-
 ];
 
 @NgModule({
