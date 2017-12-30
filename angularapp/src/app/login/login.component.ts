@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   user = {
+    id: '',
     username: '',
     fullname: '',
     email: '',

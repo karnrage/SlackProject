@@ -1,0 +1,16 @@
+<p>
+  conversation-partner works!
+</p>
+<div>
+  <p>Who do you want to talk to</p>
+  list other users here:
+  
+  <div *ngFor="let user of users; let idx = index">
+    <span><b>{{ user.fullName}}</b></span>
+ 
+    <!-- <a [routerLink]="['edit', idx]">Edit Product</a> -->
+    <!-- <a (click)="delete(idx)">Delete</a> -->
+    
+  </div>
+  <span *ngIf="users.length == 0"> No Users</span>
+</div>

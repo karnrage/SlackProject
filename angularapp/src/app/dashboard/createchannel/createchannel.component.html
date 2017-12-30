@@ -1,3 +1,177 @@
 <p>
   createchannel works!
 </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Website CSS style -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Website Font style -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <title>Create Channel</title>
+</head>
+<body>
+        <div class="container">
+            <div class="row main">
+                <div class="main-login main-center">
+                    <h5>Name Your Channel</h5>
+					<!-- <form class="" (submit)="register(); submissionForm.reset()" #submissionForm="ngForm"> -->
+                    <form class="" (submit)="createChannel()" #submissionForm="ngForm">
+                        
+                        <!-- Not using Username so commented out -->
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Channel Name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="channelName" id="channelName1"  placeholder="Enter your Channels name" [(ngModel)]="channel.channelName" #channelNameError="ngModel"/>
+                                    <!-- lower case "c" is instance of the Channel class, because thats what I defined it as in the component -->
+                                </div>
+                            </div>
+                        </div>
+
+						<!-- <div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Your Full Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="fullName"  id="fname"  placeholder="Enter your full Name" [(ngModel)]="user.fullName" #firstNameError="ngModel"/>
+								</div>                          
+                            </div>
+            </div> -->
+                        
+                        <!-- <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Your Last Name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="lastName" id="lname"  placeholder="Enter your last Name" [(ngModel)]="user.lastName" #lastNameError="ngModel"/>
+                                </div>
+                            </div>
+                        </div> -->
+
+						<!-- <div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="regEmail"  placeholder="Enter your Email"[(ngModel)]="user.email" #emailError="ngModel"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"[(ngModel)]="user.password" #passwordError="ngModel"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="confirmPassword" id="confirm"  placeholder="Confirm your Password" [(ngModel)]="user.confirmPassword" #confirmPasswordError="ngModel"/>
+                                </div> -->
+                                <!-- <% if(typeof(Errors) != 'undefined') { %>
+                                    <% for(let key in Errors.errors) { %>
+                                        <% if(key == 'confirm') {%>
+                                            <%= Errors.errors[key].message %>
+                                        <% } %>
+                                    <% } %>
+                                <% } %> -->
+							<!-- </div>
+            </div>
+                         -->
+                        <!-- <div class="form-group">
+                                <label for="bDay" class="cols-sm-2 control-label">Birthday</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="date" class="form-control" name="bDay" id=""  placeholder="Your bDay"/>
+                                    </div>
+                                </div>
+                            </div> -->
+
+						<div class="form-group ">
+							<input type="submit" value="Create"  id="channelButton" class="btn btn-primary btn-lg btn-block login-button">
+						</div>
+						
+					</form>
+				</div>
+			</div>
+    </div>
+        
+        <!-- END REG/START LOGIN -->
+		<!-- <div class="container" class="inline five columns">
+            <div class="row main">
+                <div class="main-login main-center">                                                                                                                                                                                                                                             -->
+                <!-- <h5>Login here.</h5> -->
+                <!-- <form class="" (submit)="submitLogin(); loginForm.reset()" #loginForm="ngForm"> -->
+                
+
+
+                <!-- <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="email" class="form-control" name="email" id="logEmail"  placeholder="Enter your Email"[(ngModel)]="user.email" #emailError="ngModel"/>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Not using Username so commented out -->
+                <!-- <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="logpassword"  placeholder="Enter your Password" [(ngModel)]="user.password" #passwordError="ngModel"/>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="form-group">
+                    <input type="submit"  value="Login" id="logButton" class="btn btn-primary btn-lg btn-block login-button">
+                </div> -->
+                
+                <!-- </form> -->
+            <!-- </div>
+        </div>
+    </div> -->
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+  
+</body>
+</html>

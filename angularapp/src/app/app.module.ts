@@ -10,7 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { DataService } from './data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreatechannelComponent } from './dashboard/createchannel/createchannel.component';
-import { JoinchannelComponent } from './joinchannel/joinchannel.component';
+import { ConversationComponent } from './dashboard/conversation/conversation.component';
+import { MessageComponent } from './dashboard/conversation/message/message.component';
+import { ConversationPartnerComponent } from './conversation-partner/conversation-partner.component';
+// import { JoinchannelComponent } from './joinchannel/joinchannel.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { JoinchannelComponent } from './joinchannel/joinchannel.component';
     LoginComponent,
     DashboardComponent,
     CreatechannelComponent,
-    JoinchannelComponent,
+    ConversationComponent,
+    MessageComponent,
+    ConversationPartnerComponent,
+    // JoinchannelComponent,
   ],
   imports: [
     BrowserModule,

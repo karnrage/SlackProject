@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { CreatechannelComponent } from './dashboard/createchannel/createchannel.component'
+import { ConversationPartnerComponent } from './conversation-partner/conversation-partner.component'
+
 
 const routes: Routes = [
   {
@@ -18,10 +20,21 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'create_channel',
+    path: 'createChannel',
     pathMatch: 'full',
     component: CreatechannelComponent
-}
+  },
+  {
+    path: 'conversation-partner',
+    pathMatch: 'full',
+    component: ConversationPartnerComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: LoginComponent
+  },
+
 ];
 
 @NgModule({

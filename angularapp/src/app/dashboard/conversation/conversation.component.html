@@ -1,0 +1,12 @@
+<p>
+  conversation works!
+</p>
+<div>
+    <form (submit)="onSubmit()" style="float:left">
+        <textarea name="message" cols="50" rows="50" [(ngModel)]="conversation" style="background-color:#FCF5D8;color:#AD8C08;border:5px double #AD8C08;">
+        Your talk here...
+        </textarea>
+        <br />
+        <input type="submit" value="Send message" />
+    </form>
+</div>

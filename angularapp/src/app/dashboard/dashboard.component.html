@@ -1,9 +1,12 @@
 <h2>Dash Board</h2>
 <div>
   <p>Channel</p>
- <li><a href="/create_channel">Create Channel</a></li>
+ <!-- <li><a href="/create_channel">Create Channel</a></li> -->
   <li><a href="/join_channel">Join Channel</a></li>
 </div>
+
+<a [routerLink]="['/createChannel']">Create Channel</a>
+<a [routerLink]="['/conversation-partner']">Find someone to talk with</a>
 
 <div>
   <p>Direct Message</p>
