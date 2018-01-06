@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http'
+import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'; 
@@ -14,6 +14,13 @@ export class DataService {
     console.log("made it");
     return this._http.post('/api/register', data).map((data)=>data.json()).toPromise()
   }
+
+  loginUser(user){
+    return this._http.post(`/api/login`, user)
+    .map(response => response.json())
+    .toPromise()
+  }
+
   logout(){
     return this._http.get('/api/logout').map((data)=>data.json()).toPromise()
   }

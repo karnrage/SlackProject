@@ -13,7 +13,14 @@ import { Conversation } from '../../conversation';
   styleUrls: ['./conversation.component.css']
 })
 export class ConversationComponent implements OnInit {
-  // conversation = new Conversation();
+  // neither works below
+  // conversation = new Conversation(conversationName, context, author, createdat){};
+  // conversation = new Conversation(){};
+        
+  // public conversationName: string = "",
+  // public context: string = "",
+  // public author: string = "",
+  // public createdAt: {type: Date}
 
   constructor(private _dataService: DataService, private _router: Router) { }
 

@@ -6,7 +6,7 @@
 </div>
 
 <a [routerLink]="['/createChannel']">Create Channel</a>
-<a [routerLink]="['/conversation-partner']">Find someone to talk with</a>
+<button (click)="onButtonClick()" [routerLink]="['/conversation-partner']">Find someone to talk with</button>
 
 <div>
   <p>Direct Message</p>

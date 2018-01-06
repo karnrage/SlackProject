@@ -36,6 +36,8 @@ var UserSchema = new Schema({
         trim: true
     },
 
+    conversation:
+    [{ type: Schema.Types.ObjectId, ref: "Conversation"}]  
 
 });
 

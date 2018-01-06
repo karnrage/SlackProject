@@ -11,6 +11,7 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent implements OnInit {
   
+  loggedUser = {}
 
   constructor(private _dataService: DataService, private _router: Router) { }
 
@@ -41,10 +42,10 @@ export class LoginComponent implements OnInit {
     .catch((err)=>console.log("there was an error when Logging in"))
   }
 
-  // submitLogin(){
-  //   this._dataService.loginUser(this.user)
-  //     .then(response => this.loggedUser = response)
-  //     .catch(err => this.errormessage = err.error)
-  //   // return this._router.navigateByUrl('/dashboard')
-  // }
+  submitLogin(){
+    this._dataService.loginUser(this.user)
+      .then(response => this.loggedUser = response)
+      .catch(err => this.errors = err.error)
+    return this._router.navigateByUrl('/dashboard')
+  }
 }

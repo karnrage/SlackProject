@@ -26,5 +26,15 @@ module.exports = function(app){
         res.sendFile(path.resolve('./angularapp/dist/index.html'));
  
     })
+
+    app.post('/api/createchannel', function(req, res){
+        console.log("reached login route in server routes")
+
+        users.login(req, res)
+    })
+
+    app.get('/api/getAllUsers', function (req, res) {
+        users.show(req, res)
+    })
 }
 

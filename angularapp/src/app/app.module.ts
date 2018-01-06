@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// import { HttpClientModule } from '@angular/common/http'
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
@@ -31,8 +33,10 @@ import { ConversationPartnerComponent } from './conversation-partner/conversatio
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    // HttpClientModule
   ],
+  // put all services in providers below
   providers: [DataService],
   bootstrap: [AppComponent]
 })

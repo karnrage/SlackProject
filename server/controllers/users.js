@@ -25,11 +25,11 @@ module.exports = {
               console.log("hit the save path")
               req.session.currentUser = newUser;
               console.log(req.session.currentUser)
-              res.json(req.session.currentUser)
+              return res.json(req.session.currentUser)
             }
           });
         } else {
-          res.json({'error': "passwords did not match"})
+          return res.json({'error': "passwords did not match"})
         }
       }
   },

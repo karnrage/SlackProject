@@ -46,7 +46,7 @@
                 <div class="main-login main-center">
                     <h5>Register -> Sign up once</h5>
 					<!-- <form class="" (submit)="register(); submissionForm.reset()" #submissionForm="ngForm"> -->
-                    <form class="" (submit)="register()" #submissionForm="ngForm">
+                    <form class="ng-untouched ng-pristine ng-invalid" (submit)="register(); submissionForm.reset()" #submissionForm="ngForm">
                         
                         <!-- Not using Username so commented out -->
                         <div class="form-group">
@@ -54,7 +54,11 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" [(ngModel)]="user.userName" #userNameError="ngModel"/>
+                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"
+                                    required minlength="4" maxlength="20" pattern="^[a-zA-Z0-9-_\s]+$"
+                                    [ngClass]="{'focus': username.dirty && !username.valid, 'good': username.valid}" 
+                                    [(ngModel)]="user.username" #userNameError="ngModel"/>
+                                    <p *ngIf="username.errors && username.invalid && username.dirty" class="error">Username required with a minimum length of 4</p>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +68,11 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="fullName"  id="fname"  placeholder="Enter your full Name" [(ngModel)]="user.fullName" #firstNameError="ngModel"/>
+                                    <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Enter your full Name" 
+                                    required minlength="4" maxlength="20" pattern="^[a-zA-Z]+$" 
+                                    [ngClass]="{'focus': fullName.dirty && !fullName.valid, 'good': fullName.valid}"
+                                    [(ngModel)]="user.fullName" #fullNameError="ngModel"/>
+                                    <p *ngIf="fullName.errors && fullName.invalid && fullName.dirty" class="error">Full name required with a minimum length of 4</p>
 								</div>                          
                             </div>
                         </div>
@@ -83,8 +91,15 @@
 							<label for="email" class="cols-sm-2 control-label">Your Email</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="regEmail"  placeholder="Enter your Email"[(ngModel)]="user.email" #emailError="ngModel"/>
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                        <input type="email" class="form-control" name="email" required minlength="4" maxlength="10" 
+                                        pattern="([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})" id="regEmail"  placeholder="Enter your Email"
+                                        
+                                        [ngClass]="{'focus': email.dirty && !email.valid, 'good': email.valid}"                    
+                                        [(ngModel)]="user.email" #emailError="ngModel"/>
+                                    <!-- old html below -->
+									<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
+									<!-- <input type="text" class="form-control" name="email" id="regEmail"  placeholder="Enter your Email"[(ngModel)]="user.email" #emailError="ngModel"/> -->
 								</div>
 							</div>
 						</div>
@@ -94,8 +109,17 @@
 							<label for="password" class="cols-sm-2 control-label">Password</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" required minlength="4" maxlength="10" 
+                                            pattern="^[a-zA-Z]+$" id="regPassword"  placeholder="Enter your Password"
+                                            
+                                            [ngClass]="{'focus': password.dirty && !password.valid, 'good': password.valid}" 
+                                            [(ngModel)]="user.password" #passwordError="ngModel"
+                                            #password='ngModel'/>
+                                            <p *ngIf="password.errors && password.invalid && password.dirty" class="error">Password must be at min 4 characters long, max 10 characters</p>
+                                            <!-- old html below
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"[(ngModel)]="user.password" #passwordError="ngModel"/>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"[(ngModel)]="user.password" #passwordError="ngModel"/> -->
 								</div>
 							</div>
 						</div>
@@ -105,7 +129,12 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirmPassword" id="confirm"  placeholder="Confirm your Password" [(ngModel)]="user.confirmPassword" #confirmPasswordError="ngModel"/>
+                                    <input type="password" class="form-control" name="confirmPassword" id="confirm"  placeholder="Confirm your Password" 
+                                            required minlength="4" maxlength="10" pattern="^[a-zA-Z]+$"
+                                            [ngClass]="{'focus': confirmPassword.dirty && !confirmPassword.valid, 'good': confirmPassword.valid}" 
+                                            [(ngModel)]="user.confirmPassword" #confirmPassword='ngModel'/>
+                                    <p *ngIf="ConrimPassword.errors && ConrimPassword.invalid && ConrimPassword.dirty" class="error">Password confirmation must match password</p>        
+                                    <!-- [(ngModel)]="user.confirmPassword" #confirmPasswordError="ngModel"/> -->
                                 </div>
                                 <!-- <% if(typeof(Errors) != 'undefined') { %>
                                     <% for(let key in Errors.errors) { %>
@@ -128,7 +157,8 @@
                             </div> -->
 
 						<div class="form-group ">
-							<input type="submit" value="Register"  id="regButton" class="btn btn-primary btn-lg btn-block login-button">
+                            <input type="submit" value="Register"  id="regButton" class="btn btn-primary btn-lg btn-block login-button"
+                            [ngClass]="{'green': submissionForm.valid}" class="form-control" [disabled]="submissionForm.invalid">
 						</div>
 						
 					</form>
@@ -141,7 +171,7 @@
             <div class="row main">
                 <div class="main-login main-center">                                                                                                                                                                                                                                            
                 <h5>Login here.</h5>
-                <form class="" (submit)="submitLogin(); loginForm.reset()" #loginForm="ngForm">
+                <form class="ng-untouched ng-pristine ng-invalid" (submit)="submitLogin(); loginForm.reset()" #loginForm="ngForm">
                 
 
 
@@ -150,7 +180,11 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="email" class="form-control" name="email" id="logEmail"  placeholder="Enter your Email"[(ngModel)]="user.email" #emailError="ngModel"/>
+                            <input type="email" class="form-control" name="email" required minlength="4" maxlength="10" 
+                            pattern="([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})" id="logEmail"  placeholder="Enter your Email"
+                            
+                            [ngClass]="{'focus': email.dirty && !email.valid, 'good': email.valid}"                    
+                            [(ngModel)]="user.email" #emailError="ngModel"/>
                         </div>
                     </div>
                 </div>
@@ -171,13 +205,17 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="logpassword"  placeholder="Enter your Password" [(ngModel)]="user.password" #passwordError="ngModel"/>
+                            <input type="password" class="form-control" name="password" required minlength="4" maxlength="10" 
+                                pattern="^[a-zA-Z]+$" id="logpassword"  placeholder="Enter your Password"
+                                
+                                [ngClass]="{'focus': password.dirty && !password.valid, 'good': password.valid}" 
+                                [(ngModel)]="user.password" #passwordError="ngModel"/>
                         </div>
                     </div>
                 </div>
-
+                <p class="errors">{{errors}}</p>
                 <div class="form-group">
-                    <input type="submit"  value="Login" id="logButton" class="btn btn-primary btn-lg btn-block login-button">
+                    <input type="submit"  [ngClass]="{'green': loginForm.valid}" value="Login" id="logButton" class="btn btn-primary btn-lg btn-block login-button form-control" [disabled]="loginForm.invalid">
                 </div>
                 
                 </form>
