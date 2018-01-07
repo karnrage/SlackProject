@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { BehaviorSubject } from 'rxjs';
+import { Http, Response } from '@angular/http';
+import { BehaviorSubject } from 'Rxjs';
 // import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/observable';
+
+// import { HttpClient } from '@angular/common/http'; 
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'; 
@@ -41,8 +43,10 @@ export class DataService {
     console.log("inside service:getAllUsers")
     return this._http
     .get('/api/getAllUsers')
-    .map((response:Response)=>response.json())
-    .subscribe( (response:Response)=>response.json() )
+    .map( response => {
+      this.user.next(response.json());
+    })
+
 
   }
 

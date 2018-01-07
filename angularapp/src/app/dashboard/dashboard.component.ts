@@ -7,10 +7,12 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { Conversation } from '../conversation';
+import { Observable } from 'rxjs/Observable'; 
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'; 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/from'; 
 
 
 @Component({
@@ -25,15 +27,24 @@ export class DashboardComponent implements OnInit {
   constructor(private _dataService: DataService, private _router: Router) { }
 
   ngOnInit() {
-
+    this._dataService.user.subscribe(
+      response => this.users = response //only use semicolon if a complete block of code
+    );
   }
 
   onButtonClick() { 
     // console.log(`Click event is working, event:`);
     console.log("=======INSIDE getAllUsers FUNCTION in onButtonClick==========")
     this._dataService.getAllUsers()
-    .subscribe((data)=>{this.users = data})
-    .catch((err)=>console.log("there was an error when pulling all users"))
+
+    
 }
+
+
+// .subscribe(
+//   data => ...,
+//   error => console.log("there was an error when pulling all users"));
+// ...
+// )
 
 }
