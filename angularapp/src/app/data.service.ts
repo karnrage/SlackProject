@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs';
+// import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'; 
@@ -7,6 +10,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DataService {
+
+  user: BehaviorSubject<any[]>= new BehaviorSubject ([]);
 
   constructor(private _http: Http) { }
 // ============== register and login here ==========
@@ -34,7 +39,10 @@ export class DataService {
 //================ find all users here========
   getAllUsers(){
     console.log("inside service:getAllUsers")
-    return this._http.get('/api/getAllUsers').map((data)=>data.json()).toPromise()
+    return this._http
+    .get('/api/getAllUsers')
+    .map((response:Response)=>response.json())
+    .subscribe( (response:Response)=>response.json() )
 
   }
 

@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'Rxjs';
+import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { Conversation } from '../conversation';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch'; 
+import 'rxjs/add/operator/toPromise';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,18 +20,19 @@ import { Conversation } from '../conversation';
 })
 export class DashboardComponent implements OnInit {
   // try finding users here, but then how to move result to next page
-  // still not console.log printout
-  users = []; 
+  // still not console.log printout>> angular front end, open chrome's console
+  users: User[] = []; 
   constructor(private _dataService: DataService, private _router: Router) { }
 
   ngOnInit() {
+
   }
 
   onButtonClick() { 
-    console.log(`Click event is working, event:`);
-    console.log("=======INSIDE getAllUsers FUNCTION==========")
+    // console.log(`Click event is working, event:`);
+    console.log("=======INSIDE getAllUsers FUNCTION in onButtonClick==========")
     this._dataService.getAllUsers()
-    .then((data)=>{this.users = data})
+    .subscribe((data)=>{this.users = data})
     .catch((err)=>console.log("there was an error when pulling all users"))
 }
 

@@ -57,7 +57,7 @@
                                     <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"
                                     required minlength="4" maxlength="20" pattern="^[a-zA-Z0-9-_\s]+$"
                                     [ngClass]="{'focus': username.dirty && !username.valid, 'good': username.valid}" 
-                                    [(ngModel)]="user.username" #userNameError="ngModel"/>
+                                    [(ngModel)]="user.userName" #userNameError="ngModel"/>
                                     <p *ngIf="username.errors && username.invalid && username.dirty" class="error">Username required with a minimum length of 4</p>
                                 </div>
                             </div>
